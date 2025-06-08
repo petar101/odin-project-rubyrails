@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h1>Create New Post</h1>
+
+  <%= form_with(model: @post, local: true, class: "mt-4") do |form| %>
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :content, class: "form-label" %>
+      <%= form.text_area :content, class: "form-control", rows: 4, placeholder: "What's on your mind?" %>
+    </div>
+
+    <div class="mt-3">
+      <%= form.submit "Create Post", class: "btn btn-primary" %>
+      <%= link_to "Back", root_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div> 

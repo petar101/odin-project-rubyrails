@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <h1 class="card-title mb-4">Members Only</h1>
+          
+          <div class="d-grid gap-3">
+            <% if current_user %>
+              <h3>Welcome, <%= current_user.username %></h3>
+              <div class="d-grid gap-2">
+                <%= link_to "View All Posts", posts_path, class: "btn btn-primary" %>
+                <% if current_user.role == "member" %>
+                  <%= link_to "Create New Post", new_post_path, class: "btn btn-success" %>
+                <% end %>
+                <%= link_to "View Profile", user_path(current_user), class: "btn btn-info" %>
+                <%= button_to "Sign Out", session_path(current_user), method: :delete, class: "btn btn-danger" %>
+              </div>
+            <% else %>
+              <div class="d-grid gap-2">
+                <%= link_to "Sign Up", new_user_path, class: "btn btn-primary" %>
+                <%= link_to "Sign In", new_session_path, class: "btn btn-success" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

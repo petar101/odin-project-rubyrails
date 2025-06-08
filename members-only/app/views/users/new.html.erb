@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title text-center mb-4">Sign Up</h1>
+
+          <%= form_with(model: @user, local: true) do |form| %>
+            <% if @user.errors.any? %>
+              <div class="alert alert-danger">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= form.label :username, class: "form-label" %>
+              <%= form.text_field :username, class: "form-control", placeholder: "Choose a username" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :email, class: "form-label" %>
+              <%= form.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password, class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "Choose a password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password_confirmation, class: "form-label" %>
+              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :role, class: "form-label" %>
+              <%= form.select :role, 
+                  options_for_select([['Non-Member', 'non_member'], ['Member', 'member']]), 
+                  {}, 
+                  class: "form-select" %>
+            </div>
+
+            <div class="d-grid gap-2">
+              <%= form.submit "Sign Up", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+          <div class="text-center mt-3">
+            <p>Already have an account? <%= link_to "Sign In", new_session_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
