@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="mb-4">Create New Event</h1>
+
+  <%= form_with model: @event, class: "needs-validation" do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :location, class: "form-label" %>
+      <%= f.text_field :location, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :date, class: "form-label" %>
+      <%= f.datetime_select :date, class: "form-select", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.submit "Create Event", class: "btn btn-primary" %>
+      <%= link_to "Cancel", events_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>
