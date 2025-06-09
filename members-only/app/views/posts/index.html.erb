@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>All Posts</h1>
+    <% if current_user&.role == "member" %>
+      <%= link_to "Create New Post", new_post_path, class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+  <% if @posts.any? %>
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text"><%= post.content %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">
+                  Posted by <%= current_user&.role == "member" ? post.user.username : "Anonymous" %>
+                  on <%= post.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+                </small>
+                <%= link_to "View Post", post_path(post), class: "btn btn-primary btn-sm" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="alert alert-info">
+      No posts have been created yet.
+    </div>
+  <% end %>
+
+  <%= link_to "Back to Home", root_path, class: "btn btn-secondary" %>
+</div> 

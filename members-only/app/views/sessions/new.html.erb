@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title text-center mb-4">Sign In</h1>
+
+          <%= form_with(scope: :session, url: sessions_path, local: true) do |form| %>
+            <% if flash[:alert] %>
+              <div class="alert alert-danger">
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
+
+            <div class="mb-3">
+              <%= form.label :email, class: "form-label" %>
+              <%= form.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password, class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+            </div>
+
+            <div class="d-grid gap-2">
+              <%= form.submit "Sign In", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+          <div class="text-center mt-3">
+            <p>Don't have an account? <%= link_to "Sign Up", new_user_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
