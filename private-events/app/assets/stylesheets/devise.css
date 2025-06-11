@@ -1,0 +1,114 @@
+.devise-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.devise-container h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.field input[type="email"]:focus,
+.field input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.field em {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.actions input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Remember me checkbox styling */
+.field input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Shared links styling */
+.devise-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.devise-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.devise-links a:hover {
+  text-decoration: underline;
+}
+
+/* Error messages styling */
+.error-messages {
+  background-color: #fff3f3;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #d32f2f;
+}
+
+.error-messages h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-messages ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.error-messages li {
+  margin-bottom: 0.25rem;
+} 
