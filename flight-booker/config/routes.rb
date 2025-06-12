@@ -10,5 +10,19 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "flights#index"
+
+  # Main booking flow
+  resources :flights, only: [ :index, :show ] do
+    collection do
+      post :search  # handles the search form submission
+    end
+  end
+
+  # Handle the actual booking
+  resources :bookings, only: [ :create ]
+
+  resources :seats, only: [ :index, :show, :destroy ]
+  resources :users, only: [ :new, :create, :show ]
+  resources :airports, only: [ :index, :show ]
 end
