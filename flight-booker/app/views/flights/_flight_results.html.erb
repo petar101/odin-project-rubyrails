@@ -1,0 +1,15 @@
+<% if @flights.present? %>
+  <h2>Available Flights</h2>
+  <div class="flights-list">
+    <% @flights.each do |flight| %>
+      <div class="flight-card">
+        <h3><%= flight.departure_airport.code %> → <%= flight.arrival_airport.code %></h3>
+        <p>Departure: <%= flight.departure_time.strftime("%I:%M %p") %></p>
+        <p>Duration: <%= pluralize(flight.duration, "hour") %></p>
+        <%= link_to "Select Flight", flight_path(flight), class: "button" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No flights found for your search criteria.</p>
+<% end %> 

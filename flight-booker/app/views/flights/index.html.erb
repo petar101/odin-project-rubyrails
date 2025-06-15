@@ -1,0 +1,41 @@
+<h1>Search Flights</h1>
+
+<%= form_with url: flights_path, method: :get, local: true, id: "flight-search-form" do |f| %>
+  <div class="search-form">
+    <div class="form-group">
+      <%= f.label :departure_airport_id, "From" %>
+      <%= f.collection_select :departure_airport_id, @airports, :id, :code, 
+          { prompt: "Select departure airport" }, 
+          { name: "search[departure_airport_id]" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :arrival_airport_id, "To" %>
+      <%= f.collection_select :arrival_airport_id, @airports, :id, :code, 
+          { prompt: "Select arrival airport" }, 
+          { name: "search[arrival_airport_id]" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :date, "Date" %>
+      <%= f.select :date, 
+          @available_dates.map { |date| [date.strftime("%B %d, %Y"), date] },
+          { prompt: "Select date" },
+          { name: "search[date]" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :passengers, "Passengers" %>
+      <%= f.select :passengers, 
+          @passenger_options.map { |num| [pluralize(num, "passenger"), num] },
+          { prompt: "Select number of passengers" },
+          { name: "search[passengers]" } %>
+    </div>
+
+    <%= f.submit "Search Flights" %>
+  </div>
+<% end %>
+
+<div id="flight-results">
+  <%= render 'flight_results' if @flights.present? %>
+</div> 
