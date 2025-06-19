@@ -1,2 +1,5 @@
-class MembermailerMailer < ApplicationMailer
+# app/mailers/application_mailer.rb
+class ApplicationMailer < ActionMailer::Base
+    default from: "skete@skete.com"
+    layout "mailer"
 end

@@ -1,0 +1,13 @@
+Welcome to Members Only, <%= @user.username %>
+===============================================
+
+You have successfully signed up to Members Only,
+your username is: <%= @user.username %>.
+
+To login to the site, just follow this link: <%= new_session_url %>.
+
+Thanks for joining and have a great day!
+
+<p>Hello there, this is the image you requested:</p>
+
+<%= image_tag attachments['images.jpg'].url %>
